@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projet Cisco Lab</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png">
+    
+    <script src="https://kit.fontawesome.com/7e5f1899f9.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="vertical-text v-left">PROJET SISR</div>
+    <div class="vertical-text v-right">LABO CISCO</div>
+
+    <div class="project-bg-anim">
+        <span class="big-letter l-left">C</span>
+        <span class="big-letter l-top">I</span>
+        <span class="big-letter l-center">S</span>
+        <span class="big-letter l-top">C</span>
+        <span class="big-letter l-right">O</span>
+    </div>
+
+    <header>
+        <div class="signature-container">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" class="signature-svg">
+                <path id="sig-path" d="M40,100 C30,100 30,40 40,30 C70,30 70,60 40,65 C80,65 80,100 40,100 M90,100 L90,30 Q90,60 110,80 L130,100 L130,30 M150,80 C140,80 140,90 160,90 C180,90 180,100 160,100 C140,100 130,110 170,110 M30,120 Q100,140 200,110"/>
+            </svg>
+        </div>
+
+        <nav class="project-nav">
+            <ul>
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="projet-ap2.html">AP2</a></li>
+                <li><a href="projet-ap3.html">AP3</a></li>
+                <li><a href="files/instruction_cisco.pdf" download class="btn-download"><i class="fa-solid fa-download"></i> Doc</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="project-hero">
+        <h1>LABO CISCO</h1>
+        <p>Déploiement complet d'un LAN d'entreprise avec ACL et sécurité de niveau 2.</p>
+    </div>
+
+    <div class="zigzag-container">
+        
+        <div class="zigzag-item">
+            <div class="zigzag-img">
+                <img src="images/cisco1.jpeg" alt="Screenshot 1">
+            </div>
+            <div class="zigzag-text">
+                <h3>installation</h3>
+                <p>ROUTER CISCO, Switch Cisco, 2 client, Windows Serveur, Proxmox</p>
+            </div>
+        </div>
+
+        <div class="zigzag-item">
+            <div class="zigzag-img">
+                <img src="images/cisco2.JPG" alt="Screenshot 2">
+            </div>
+            <div class="zigzag-text">
+                <h3>réalisation</h3>
+                <p>Probleme avec DHCP sur PfSense (Proxmox)</p>
+            </div>
+        </div>
+
+        <div class="zigzag-item">
+            <div class="zigzag-img">
+                <img src="images/stage26.JPG" alt="Screenshot 3">
+            </div>
+            <div class="zigzag-text">
+                <h3>résultat</h3>
+                <p>Encors...</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // 1. SIGNATURE ANIMATION
+        window.addEventListener('load', () => {
+            const path = document.getElementById('sig-path');
+            const length = path.getTotalLength();
+            path.style.strokeDasharray = length;
+            path.style.strokeDashoffset = length;
+            path.getBoundingClientRect();
+            path.style.transition = 'stroke-dashoffset 2.5s ease-in-out';
+            path.style.strokeDashoffset = '0';
+        });
+
+        // 2. INTRO ANIMATION (CISCO BALANCED)
+        gsap.from(".l-left",   { x: -500, opacity: 0, duration: 1.5, ease: "power2.out" });
+        gsap.from(".l-top",    { y: -500, opacity: 0, duration: 1.5, delay: 0.2, ease: "power2.out" });
+        gsap.from(".l-right",  { x: 500, opacity: 0, duration: 1.5, delay: 0.4, ease: "power2.out" });
+        // The 'S' zooms in from center
+        gsap.from(".l-center", { scale: 0, opacity: 0, duration: 1.5, delay: 0.3, ease: "back.out(1.7)" });
+
+        // 3. ZIG-ZAG SCROLL REVEAL
+        gsap.registerPlugin(ScrollTrigger);
+        
+        gsap.utils.toArray('.zigzag-item').forEach(item => {
+            gsap.to(item, {
+                opacity: 1,
+                y: 0,
+                duration: 1,
+                scrollTrigger: {
+                    trigger: item,
+                    start: "top 80%", 
+                    toggleActions: "play none none reverse"
+                }
+            });
+        });
+    </script>
+</body>
+</html>

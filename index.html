@@ -2,299 +2,252 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abdou Portfolio</title>
+    <title>Abdou Bensalem - Portfolio</title>
+    
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/logo.png">
+    
     <script src="https://kit.fontawesome.com/7e5f1899f9.js" crossorigin="anonymous"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 </head>
 
-<body> 
-<header>
- <div id="header">
-    <div class="container">
-        <nav>
-            <img src="images/logo.png" class="logo" alt="Abdou Portfolio Logo">
+<body>
+
+    <div class="ink-container">
+        <svg viewBox="0 0 500 800" preserveAspectRatio="xMidYMax meet">
+            <path id="ink-path" vector-effect="non-scaling-stroke" d="
+                M 250 -10 Q 300 100 250 200 Q 200 300 250 400 Q 300 500 250 600
+                C 250 650, 100 650, 100 700
+                C 100 750, 120 680, 140 700 C 160 720, 180 680, 200 700
+                C 210 710, 230 690, 220 705 C 215 715, 235 715, 240 705
+                C 245 695, 255 695, 260 705 C 270 695, 285 695, 280 710
+                C 290 695, 300 700, 300 715 C 300 685, 310 685, 310 690
+            " />
+        </svg>
+    </div>
+
+    <div class="bg-watermark" id="bgText">PORTFOLIO</div>
+
+    <header>
+        <div class="header-info info-left" id="clock">00:00</div>
+
+        <div class="signature-container">
+            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 150" class="signature-svg">
+                <path id="sig-path" d="M40,100 C30,100 30,40 40,30 C70,30 70,60 40,65 C80,65 80,100 40,100 M90,100 L90,30 Q90,60 110,80 L130,100 L130,30 M150,80 C140,80 140,90 160,90 C180,90 180,100 160,100 C140,100 130,110 170,110 M30,120 Q100,140 200,110"/>
+            </svg>
+        </div>
+
+        <nav class="center-nav">
             <ul>
-                <li><a href="#header"></a></li>
-                <li><a href="#about">À propos</a></li>
-                <li><a href="#services">Compétence</a></li>
-                <li><a href="#portfolio">Projets</a></li>
-                <li><a href="#Veille">Veille</a></li>
-                <li><a href="#legal">Mentions Légales</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#about"><span class="icon"><i class="fa-solid fa-user"></i></span><span class="text">À Propos</span></a></li>
+                <li><a href="#services"><span class="icon"><i class="fa-solid fa-code"></i></span><span class="text">Skills</span></a></li>
+                <li><a href="#portfolio"><span class="icon"><i class="fa-solid fa-briefcase"></i></span><span class="text">Projets</span></a></li>
+                <li><a href="#veilles"><span class="icon"><i class="fa-solid fa-eye"></i></span><span class="text">Veille</span></a></li>
+                <li><a href="#legal"><span class="icon"><i class="fa-solid fa-scale-balanced"></i></span><span class="text">Légal</span></a></li>
             </ul>
         </nav>
-        <div class="header-text">
-            <p>BTS-SIO portfolio</p>
-            <h1>Salut, Je suis <span>Abdou Bensalem</span><br>étudiant BTS-sio</h1>
-        </div>
-    </div>
- </div>   
 
- <div id="about">
-    <div class="container">
-        <div class="row">
-            <div class="about-col-1">
-                <img src="images/user.png" alt="user profile picture">
-            </div>
-            <div class="about-col-2 ">
-                <h1 class="sub-title">À propos de moi.</h1>
-                <p>      Bonjour et bienvenue sur mon portfolio.
-                    Je m'appelle Bensalem Mohamed Abdou, j'ai 19 ans et je suis originaire de strasbourg.
-                    
-                    Étant passionné par l’informatique et les jeux-vidéos depuis de nombreuses années, je me suis naturellement dirigé vers un bac avec Science expermentel au lycée.
-                    Après avoir obtenu le bac avec mention bien en 2023, j’ai intégré IFIDE a Strasbourg pour préparé un BTS SIO (Services Informatiques aux Organisations) option.
-                    
-                    En préparant ce BTS avec l’option SIO , j'ai pu approfondir mes connaissances en développement et découvrir de nouvelles technologies. J'ai ainsi participé à plusieurs projets d'équipe qui m'ont permis de mettre en pratique mes compétences et de les enrichir.
-                    Plus tard, j'envisage de me spécialiser en développement, et après ces trois années, je souhaite préparer un diplôme d'ingénieur ou équivalent, en poursuivant mes études par 2 années 
+        <div class="contact-trigger" onclick="toggleContact()">
+            <span id="mail-text">Contact</span>
+            <i class="fa-regular fa-envelope" id="mail-icon"></i>
+        </div>
+
+        <div class="header-info info-right" id="date">01 JAN 25</div>
+    </header>
+
+    <section id="about" data-title="À PROPOS">
+        <div class="content-box">
+            <h2 class="glitch-text" data-text="À propos de moi.">À propos de moi.</h2>
+            <div class="row">
+                <div class="col-text">
+                    <p>
+                        <strong>Salut !</strong> Je m'appelle Bensalem Mohamed Abdou.
+                        <br><br>
+                        Étudiant en <strong>BTS SIO</strong> (Option SISR), je suis passionné par l'architecture réseau et la cybersécurité. 
                     </p>
-
-                    <div class="tab-title">
-                        <p class="tab-links" onclick="opentab('experience')">Experience</p>
-                        <p class="tab-links" onclick="opentab('education')">Éducation</p>
-                    </div>
-                    <div class="tab-contents" id="experience">
-                        <ul>
-                            <li><span>2020 - current</span><br> J'ai acquis de l'expérience en montage vidéo sur Adobe Premiere Pro, développant mes compétences dans l’édition, le storytelling visuel et l’optimisation des séquences.</li>
-                            <li><span>2024 - 2025</span><br> Apprenant grâce aux cours YouTube
-                            Groupes d'écriture </li>
-                            <li><span>2023 - current</span><br> IFIDE supformation </li>
-                        </ul>
-                    </div> 
-                    <div class="tab-contents" id="education">
-                        <ul>
-                            <li><span>2023</span><br> J'ai obtenu mon baccalauréat en Algérie.</li>
-                            <li><span>2024</span><br> J'ai étudié pendant six mois en ST à l'Université d'Alger. </li>
-                            <li><span>2025</span><br> J'étudie actuellement le BTS-SIO à IFIDE Supformation. </li>
-                        </ul>
-                    </div>
-            </div>
-        </div>
-    </div>
- </div>
-
- <div id="services">
-    <div class="container">
-        <h1 class="sub-title">Compétences.</h1>
-        <div class="services-list">
-            <div>
-                <i class="fa-solid fa-book"></i>             
-                <h2>en écrivant</h2>
-                <p> Je travaille sur un livre et je suis actuellement en train d'écrire le premier brouillon. C'est un livre de science-fiction.</p>
-                <a href="#">En savoir plus</a>
-            </div>
-            <div>
-                <i class="fa-solid fa-code"></i>
-                <h2>Codage</h2>
-                <p> J'ai découvert cela à l'école BTS-SIO et j'aime bien, donc peut-être que je m'y intéresserai davantage.</p>
-                <a href="#">En savoir plus</a>
-            </div>
-            <div>
-                <i class="fa-solid fa-camera"></i>      
-                <h2>photographie</h2>
-                <p> Je suis très intéressé par cela, mais je n'ai jamais eu l'occasion d'en apprendre davantage.</p>
-                <a href="#">En savoir plus</a>
-            </div>
-        </div>
-    </div>
- </div>
-
- <div id="portfolio">
-    <div class="container">
-        <h1 class="sub-title">Mes projets.</h1>
-        <div class="project-list">
-            <div class="project">
-                <img src="images/work-2.jpg" alt="writing project">
-                <div class="layer">
-                    <h3>Livre</h3>
-                    <p> J'ai un projet d'écriture d'un livre.</p>
-                    <a href="#"><i class="fa-solid fa-pen-nib"></i></a>
+                    <br>
+                    <p>Je prépare actuellement mon BAC +2.</p>
+                    <a href="career.html" class="small-btn" style="margin-top: 20px;">Voir mon Parcours</a>
                 </div>
-            </div>
-            <div class="project">
-                <img src="images/work-1.jpg" alt="coding project">
-                <div class="layer">
-                    <h3>Html/CSS</h3>
-                    <p> Je travaille actuellement à développer mes compétences en programmation en HTML, CSS.</p>
-                    <a href="#"><i class="fa-solid fa-terminal"></i></a>
-                </div>
-            </div>
-            <div class="project">
-                <img src="images/work-3.jpg" alt="photographie project">
-                <div class="layer">
-                    <h3>Photographe</h3>
-                    <p> J'ai un projet d'apprendre à prendre des photos d'une manière plus artistique.</p>
-                    <a href="#"><i class="fa-solid fa-camera-retro"></i></a>
+                <div class="col-img">
+                    <img src="images/user.png" alt="Profile">
                 </div>
             </div>
         </div>
-        <a href="#" class="btn">Voir plus</a>
-    </div>
- </div>
+    </section>
 
- <div id="Veille">
-    <div class="container">
-        <div class="row">
-            <div class="about-col-1">
-                <img src="images/veille.jpg" alt="user profile picture">
-            </div>
-            <div class="about-col-2 ">
-                <h1 class="sub-title">Veille.</h1>
-                <p>L’intelligence artificielle est un sujet qui me fascine et que j’explore régulièrement à travers différentes sources d’information. Je me tiens informé en grande partie grâce aux réseaux sociaux, notamment via MKBHD, et aux conférences du TED Channel sur YouTube. J’aime analyser ces tendances en y apportant mon propre regard critique, en confrontant les avancées technologiques aux enjeux qu’elles soulèvent.
-
-                    J’utilise très souvent OpenAI, aussi bien pour approfondir mes connaissances que pour expérimenter la génération d’images créatives par IA, un domaine que je trouve particulièrement innovant et inspirant.
-                    
-                    C’est dans cette dynamique que j’ai choisi de mettre en place une veille technologique sur l’intelligence artificielle, afin d’explorer son impact sur notre quotidien, ses bénéfices et ses limites, tout en y intégrant une réflexion personnelle.</p>
-                    <div class="tab-title">
-                        <p class="tab-links" onclick="opentab('Veille technologique')">Veille technologique</p>
-                        <p class="tab-links" onclick="opentab('Veille juridique')">Veille juridique</p>
-                    </div>
-                    <div class="tab-contents" id="Veille technologique">
-                        <ul>
-                            <li><span> L’Intelligence Artificielle et son Impact</span><br>L’intelligence artificielle (IA) est devenue une technologie incontournable qui influence presque tous les aspects de notre quotidien. Elle est présente dans nos smartphones, nos services en ligne, la médecine, l’industrie, et même dans la création artistique. Grâce à mon exploration personnelle et aux sources comme MKBHD et TED Channel, j’ai pu observer à quel point l’IA transforme le monde, avec des effets à la fois positifs et préoccupants.</li>
-
-                                <li><span>1. Les Bénéfices de l’Intelligence Artificielle</span></li>
-                                Automatisation et Gain de Temps : L’IA permet d’exécuter des tâches complexes beaucoup plus rapidement que les humains. Dans les entreprises, elle optimise les processus, réduit les erreurs et améliore la productivité.
-                                Avancées Médicales : Des outils comme DeepMind détectent les maladies bien avant l’apparition des symptômes, permettant un diagnostic précoce et des traitements plus efficaces.
-                                Créativité et Innovation : Grâce à OpenAI et d’autres outils d’IA, il est possible de générer des images, des textes et même des vidéos d’une qualité impressionnante, ouvrant de nouvelles perspectives dans les domaines artistiques.
-                                Cybersécurité et Détection des Fraudes : L’IA analyse d’énormes quantités de données en temps réel pour détecter les menaces et protéger les utilisateurs contre les cyberattaques.</li>
-                                <li><span>2. Les Défis et Risques de l’IA</span></li>
-                                Perte d’Emplois : L’automatisation remplace progressivement certains métiers, notamment dans les secteurs de la logistique et de l’industrie.
-                                Biais Algorithmiques : Les IA apprennent à partir des données existantes, ce qui peut entraîner des discriminations involontaires (exemple : IA de recrutement favorisant certains profils au détriment d’autres).
-                                Manipulation et Désinformation : Les deepfakes et autres outils basés sur l’IA peuvent être utilisés pour créer de fausses informations, ce qui peut influencer les opinions publiques et engendrer des conséquences dangereuses.
-                                Dépendance Technologique : Plus l’IA est utilisée, plus nous devenons dépendants d’elle, ce qui peut poser problème en cas de panne ou d’abus de certaines entreprises.</li>
-                                <li>L’IA est une avancée formidable, mais elle doit être utilisée avec responsabilité et éthique pour éviter ses dérives.</li>
-
-                        </ul>
-                    </div> 
-                    <div class="tab-contents" id="Veille juridique">
-                        <ul>
-                            <li><span>Régulation et Encadrement de l’IA</span><br> L’essor de l’intelligence artificielle soulève de nombreuses questions juridiques et éthiques. Les gouvernements et institutions cherchent à encadrer son utilisation pour éviter les abus tout en encourageant l’innovation.</li>
-
-                                <li><span>1. Régulations et Législations en Place</span></li>
-                                L’Union Européenne et l’AI Act : L’Europe a mis en place un cadre réglementaire strict, l’AI Act, qui classe les IA selon leur niveau de risque (faible, élevé, inacceptable). Cette législation vise à interdire certaines IA trop intrusives, comme la reconnaissance faciale en temps réel, et à renforcer la transparence des algorithmes.
-                                Le RGPD et la Protection des Données : Les IA collectent et analysent des quantités massives de données personnelles. En France, la CNIL impose des règles strictes pour garantir la confidentialité et limiter les abus des grandes entreprises technologiques.
-                                Les États-Unis et la Responsabilité des Développeurs : Aux États-Unis, les discussions sont en cours pour déterminer qui est responsable en cas d’erreur commise par une IA, notamment dans les cas des voitures autonomes ou des décisions prises par des algorithmes bancaires.</li>
-                                <li><span>2. Les Grands Enjeux Juridiques et Éthiques</span></li>
-                                Droits des Utilisateurs : Qui possède réellement les créations générées par l’IA ? Un texte ou une image produit par une IA peut-il être protégé par le droit d’auteur ?
-                                Encadrement des IA de Surveillance : Certains gouvernements utilisent l’IA pour surveiller les populations, ce qui pose un problème majeur en termes de libertés individuelles.
-                                IA et Justice : Certaines IA sont utilisées pour aider à prendre des décisions judiciaires. Mais un algorithme peut-il réellement rendre une décision équitable sans préjugés ?
-                                Transparence et Explicabilité : Beaucoup d’IA fonctionnent comme des "boîtes noires", rendant leurs décisions difficiles à expliquer ou à contester.</li>
-                                <li><span>3. Vers une IA Éthique et Régulée</span></li>
-                                <li> Pour que l’IA soit bénéfique et non une menace, plusieurs solutions sont envisagées :</li>
-                                
-                                <li>Obliger les entreprises à rendre leurs algorithmes plus transparents afin que les utilisateurs comprennent comment les décisions sont prises.</li>
-                                <li>Mettre en place des audits réguliers pour détecter et corriger les biais algorithmiques.</li>
-                                <li> Développer des cadres éthiques pour garantir que les IA respectent les droits humains et ne favorisent pas la discrimination.</li>
-                                <li> Éduquer le public sur l’IA pour éviter les malentendus et les peurs infondées, mais aussi pour responsabiliser les utilisateurs face aux risques.</li>
-
-                        </ul>
-                    </div>
-            </div>
-        </div>
-    </div>
- </div>
-
- <div id="legal">
-    <div class="container">
-        <div class="row">
-            <div class="about-col-1">
-                <img src="images/legal.jpg" alt="Mentions legal picture">
-            </div>
-            <div class="about-col-2 ">
-                <h1 class="sub-title">Mentions Légales.</h1>
-
-                   <div class="tab-title">
-                       <p class="tab-links active-link" onclick="opentab('Éditeurdusite')">Éditeur du site</p>
-                       <p class="tab-links" onclick="opentab('Hébergeur')">Hébergeur</p>
-                       <p class="tab-links" onclick="opentab('Propriétéintellectuelle')">Propriété intellectuelle</p>
-                       <p class="tab-links" onclick="opentab('Responsabilité')">Responsabilité</p>
-
-
-                   </div>
-                   <div class="tab-contents active-tab" id="Éditeurdusite">
-                       <ul>
-                           <li><span>Nom</span><br> Abdou Bensalem.</li>
-                           <li><span>Site web</span><br>GitHub Portfolio</li>
-                       </ul>
-                   </div>
-                   <div class="tab-contents" id="Hébergeur">
-                       <ul>
-                           <li><span>Nom</span><br>GitHub Pages.</li>
-                           <li><span>Adresse</span><br> GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA.</li>
-                           <li><span>Site web</span><br>https://pages.github.com</li>
-                       </ul>
-                   </div> 
-                   <div class="tab-contents" id="Propriétéintellectuelle">
-                       <ul>
-                           <li><span>1</span><br>L’ensemble des contenus présents sur ce site (textes, images, vidéos, code, graphismes, logo) est la propriété exclusive d'Abdou Bensalem, sauf mention contraire.</li>
-                           <li><span>2</span><br>Certaines ressources (images, polices, éléments graphiques) proviennent d’Internet et de plateformes comme YouTube. Tous les droits de ces éléments restent la propriété de leurs auteurs respectifs.</li>
-                           <li><span>3</span><br>Toute reproduction, distribution ou utilisation des contenus de ce site sans autorisation expresse est interdite. Pour toute demande, veuillez me contacter par email.</li>
-                       </ul>
-                   </div> 
-                   <div class="tab-contents" id="Responsabilité">
-                       <ul>
-                           <li> 
-                               <li><span>a</span><br>Ce site a pour but de présenter mon portfolio BTS-SIO et mon travail personnel.</li>
-                               <li><span>b</span><br>Les informations présentées sur ce site reflètent mon parcours et mes compétences à titre personnel.
-                                    Je m’efforce de maintenir ces informations à jour, mais certaines données peuvent évoluer.
-                                   Je ne peux être tenu responsable d’éventuelles erreurs ou inexactitudes dans les contenus proposés.</li>
-                       </ul>
-                   </div> 
-               </div>  
-       </div>
-   </div>
-</div>
-
- <div id="contact">
-    <div class="container">
-        <div class="row">
-            <div class="contact-left">
-                <h1 class="sub-title">Contactez-moi</h1>
-                <p>abdoubensalem300@gmail.com</p>
-                <p>0123456789</p>
-                <div class="social-icon">
-                    <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://telegram.org/"><i class="fa-brands fa-telegram"></i></a>
-                    <a href="https://discord.com/"><i class="fa-brands fa-discord"></i></a>
+    <section id="services" data-title="COMPÉTENCES">
+        <div class="content-box">
+            <h2 class="glitch-text" data-text="Mes Compétences.">Mes Compétences.</h2>
+            <div class="grid-list">
+                <div class="item">
+                    <i class="fa-solid fa-server"></i>
+                    <h3>Système</h3>
+                    <p>Windows Server, Linux, AD, VMware.</p>
                 </div>
-                <a href="images/examplePDF.pdf" download class="btn btn2">Télécharger PDF</a>
+                <div class="item">
+                    <i class="fa-solid fa-network-wired"></i>
+                    <h3>Réseau</h3>
+                    <p>Cisco (VLAN, OSPF), Switch, Routing.</p>
+                </div>
+                <div class="item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <h3>Sécurité</h3>
+                    <p>Firewall (Pfsense), ACLs, VPN.</p>
+                </div>
             </div>
-            <div class="contact-right">
-                <form>
-                    <input type="text" name="Name" placeholder="Nom" required>
-                    <input type="email" name="email" placeholder="Prénom" required>
-                    <textarea name="Message" rows="6" placeholder="Ton Message"></textarea>
-                    <button type="submit" class="btn btn2">Envoyer</button>
-                </form>
+        </div>
+    </section>
+
+    <section id="portfolio" data-title="PROJETS">
+        <div class="content-box">
+            <h2 class="glitch-text" data-text="Mes Projets.">Mes Projets.</h2>
+            <div class="grid-list">
+                <div class="project-card">
+                    <h3>AP2 - Parcus</h3>
+                    <p>Refonte Infra Réseau</p>
+                    <a href="projet-ap2.html" class="small-btn">Voir</a>
+                </div>
+                <div class="project-card">
+                    <h3>AP3 - IFIDE</h3>
+                    <p>Interconnexion VPN</p>
+                    <a href="projet-ap3.html" class="small-btn">Voir</a>
+                </div>
+                <div class="project-card">
+                    <h3>Cisco Lab</h3>
+                    <p>Securité LAN</p>
+                    <a href="projet-cisco.html" class="small-btn">Voir</a>
+                </div>
             </div>
+        </div>
+    </section>
+
+    <section id="veilles" data-title="VEILLE TECH">
+        <div class="content-box">
+            <h2 class="glitch-text" data-text="Veille Technologique.">Veille Technologique.</h2>
+            <p>Sujet : <strong>L'Impact de l'IA sur l'Administration Réseau.</strong></p>
+            <br>
+            <ul>
+                <li><i class="fa-solid fa-rss"></i> Outils : Feedly, Twitter, TED.</li>
+                <li><i class="fa-solid fa-check"></i> Sujet 2 : Fin de vie Windows 10.</li>
+            </ul>
+            <a href="veille.html" class="small-btn" style="margin-top: 20px;">
+                Lire le Dossier <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i>
+            </a>
+        </div>
+    </section>
+
+    <section id="legal" data-title="LÉGAL">
+        <div class="content-box">
+            <h2 class="glitch-text" data-text="Mentions Légales.">Mentions Légales.</h2>
+            <p><strong>Éditeur :</strong> Abdou Bensalem</p>
+            <p><strong>Hébergement :</strong> GitHub Pages</p>
+            <a href="legal.html" class="small-btn" style="margin-top: 20px;">
+                Voir les détails
+            </a>
+        </div>
+    </section>
+
+    <div id="contact-modal" class="modal-overlay">
+        <div class="close-modal" onclick="toggleContact()">✕</div>
+        <div class="contact-box">
+            <h2>Me Contacter</h2>
+            <div class="socials">
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-facebook"></i></a>
+                <a href="mailto:abdou@gmail.com"><i class="fa-regular fa-envelope"></i></a>
+            </div>
+            <form action="https://formspree.io/f/mreezgbd" method="POST">
+                <label>Nom Complet</label>
+                <input type="text" name="name" required>
+                <label>Email</label>
+                <input type="email" name="email" required>
+                <label>Message</label>
+                <textarea name="message" rows="4"></textarea>
+                <button type="submit" class="send-btn">Envoyer</button>
+            </form>
         </div>
     </div>
 
-    <div class="copyright">
-        <p> © Abdou Bensalem 2025. <i class="fa-solid fa-rocket"></i> Site développé par Abdou Bensalem avec HTML, CSS.</p>
-    </div>
- </div>
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
 
- <script>
+        // --- 1. CLOCK & DATE LOGIC ---
+        function updateTime() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            document.getElementById('clock').innerText = `${hours}:${minutes}`;
 
-    var tablinks = document.getElementsByClassName("tab-links");
-    var tabcontents = document.getElementsByClassName("tab-contents");
-    
-    function opentab(tabname){
-        for(tablink of tablinks){
-            tablink.classList.remove("active-link");
+            const day = String(now.getDate()).padStart(2, '0');
+            const year = String(now.getFullYear()).slice(-2);
+            const months = ["JAN", "FEV", "MAR", "AVR", "MAI", "JUI", "JUL", "AOU", "SEP", "OCT", "NOV", "DEC"];
+            const month = months[now.getMonth()];
+            document.getElementById('date').innerText = `${day} ${month} ${year}`;
         }
-        for(tabcontent of tabcontents){
-            tabcontent.classList.remove("active-tab");
-        }
-        event.currentTarget.classList.add("active-link");
-        document.getElementById(tabname).classList.add("active-tab");
-    }
+        setInterval(updateTime, 1000);
+        updateTime();
 
- </script>
-</header>
+        // --- 2. EXISTING LOGIC (Ink, Signature, Contact) ---
+        window.addEventListener('load', () => {
+            const path = document.getElementById('sig-path');
+            const length = path.getTotalLength();
+            path.style.strokeDasharray = length;
+            path.style.strokeDashoffset = length;
+            path.style.transition = 'stroke-dashoffset 2.5s ease-in-out';
+            path.style.strokeDashoffset = '0';
+        });
+
+        function toggleContact() {
+            const modal = document.getElementById('contact-modal');
+            const icon = document.getElementById('mail-icon');
+            if (modal.style.display === 'flex') {
+                modal.style.display = 'none';
+                icon.classList.remove('fa-envelope-open');
+                icon.classList.add('fa-envelope');
+            } else {
+                modal.style.display = 'flex';
+                icon.classList.remove('fa-envelope');
+                icon.classList.add('fa-envelope-open');
+            }
+        }
+
+        const sections = document.querySelectorAll('section');
+        const bgText = document.getElementById('bgText');
+        sections.forEach(section => {
+            ScrollTrigger.create({
+                trigger: section,
+                start: "top center",
+                end: "bottom center",
+                onEnter: () => updateBg(section.dataset.title),
+                onEnterBack: () => updateBg(section.dataset.title)
+            });
+        });
+        function updateBg(text) {
+            bgText.style.opacity = 0; 
+            setTimeout(() => {
+                bgText.innerText = text;
+                bgText.style.opacity = 0.1;
+            }, 300);
+        }
+
+        const inkPath = document.getElementById("ink-path");
+        const inkLength = inkPath.getTotalLength();
+        inkPath.style.strokeDasharray = inkLength;
+        inkPath.style.strokeDashoffset = inkLength;
+        gsap.to(inkPath, {
+            strokeDashoffset: 0, 
+            ease: "none",
+            scrollTrigger: {
+                trigger: "body",
+                start: "top top", 
+                end: "bottom bottom", 
+                scrub: 1.5,
+            }
+        });
+    </script>
 </body>
 </html>
