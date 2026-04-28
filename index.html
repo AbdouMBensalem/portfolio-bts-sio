@@ -43,17 +43,15 @@
         <nav class="center-nav">
             <ul>
                 <li><a href="#about"><span class="icon"><i class="fa-solid fa-user"></i></span><span class="text">À Propos</span></a></li>
-                <li><a href="#services"><span class="icon"><i class="fa-solid fa-code"></i></span><span class="text">Skills</span></a></li>
-                <li><a href="#portfolio"><span class="icon"><i class="fa-solid fa-briefcase"></i></span><span class="text">Projets</span></a></li>
+                <li><a href="#services"><span class="icon"><i class="fa-solid fa-code"></i></span><span class="text">Compétences</span></a></li>
+                <li><a href="#projet"><span class="icon"><i class="fa-solid fa-briefcase"></i></span><span class="text">Projets</span></a></li>
                 <li><a href="#veilles"><span class="icon"><i class="fa-solid fa-eye"></i></span><span class="text">Veille</span></a></li>
                 <li><a href="#legal"><span class="icon"><i class="fa-solid fa-scale-balanced"></i></span><span class="text">Légal</span></a></li>
+                <li><a href="#Epreuves"><span class="icon"><i class="fa-solid fa-pen"></i></span><span class="text">Épreuves</span></a></li>
             </ul>
         </nav>
 
-        <div class="contact-trigger" onclick="toggleContact()">
-            <span id="mail-text">Contact</span>
-            <i class="fa-regular fa-envelope" id="mail-icon"></i>
-        </div>
+ 
 
         <div class="header-info info-right" id="date">01 JAN 25</div>
     </header>
@@ -73,7 +71,7 @@
                     <a href="career.html" class="small-btn" style="margin-top: 20px;">Voir mon Parcours</a>
                 </div>
                 <div class="col-img">
-                    <img src="images/user.png" alt="Profile">
+                    <img src="images/user.1.JPG" alt="Profile">
                 </div>
             </div>
         </div>
@@ -91,34 +89,35 @@
                 <div class="item">
                     <i class="fa-solid fa-network-wired"></i>
                     <h3>Réseau</h3>
-                    <p>Cisco (VLAN, OSPF), Switch, Routing.</p>
+                    <p>Switch, Routing.</p>
                 </div>
                 <div class="item">
                     <i class="fa-solid fa-shield-halved"></i>
                     <h3>Sécurité</h3>
-                    <p>Firewall (Pfsense), ACLs, VPN.</p>
+                    <p>Firewall (Pfsense),</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="portfolio" data-title="PROJETS">
+    <section id="projet" data-title="PROJETS">
         <div class="content-box">
             <h2 class="glitch-text" data-text="Mes Projets.">Mes Projets.</h2>
             <div class="grid-list">
                 <div class="project-card">
                     <h3>AP2 - Parcus</h3>
-                    <p>Refonte Infra Réseau</p>
                     <a href="projet-ap2.html" class="small-btn">Voir</a>
                 </div>
                 <div class="project-card">
                     <h3>AP3 - IFIDE</h3>
-                    <p>Interconnexion VPN</p>
                     <a href="projet-ap3.html" class="small-btn">Voir</a>
                 </div>
                 <div class="project-card">
-                    <h3>Cisco Lab</h3>
-                    <p>Securité LAN</p>
+                    <h3>AP4 - SECURITE CIVILE</h3>
+                    <a href="projet-ap4.html" class="small-btn">Voir</a>
+                </div>
+                <div class="project-card">
+                    <h3>Cisco </h3>
                     <a href="projet-cisco.html" class="small-btn">Voir</a>
                 </div>
             </div>
@@ -151,26 +150,16 @@
         </div>
     </section>
 
-    <div id="contact-modal" class="modal-overlay">
-        <div class="close-modal" onclick="toggleContact()">✕</div>
-        <div class="contact-box">
-            <h2>Me Contacter</h2>
-            <div class="socials">
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-facebook"></i></a>
-                <a href="mailto:abdou@gmail.com"><i class="fa-regular fa-envelope"></i></a>
-            </div>
-            <form action="https://formspree.io/f/mreezgbd" method="POST">
-                <label>Nom Complet</label>
-                <input type="text" name="name" required>
-                <label>Email</label>
-                <input type="email" name="email" required>
-                <label>Message</label>
-                <textarea name="message" rows="4"></textarea>
-                <button type="submit" class="send-btn">Envoyer</button>
-            </form>
+    <section id="Epreuves" data-title="Épreuves">
+        <div class="content-box">
+            <h2 class="glitch-text" data-text="Épreuves du BTS SIO.">Épreuves du BTS SIO.</h2>
+            <p>Épreuve 5 : <strong>L'Impact de l'IA sur l'Administration Réseau.</strong></p>
+            <p>Épreuve 6 : <strong>L'Impact de l'IA sur l'Administration Réseau.</strong></p>
+            <a href="Epreuves.html" class="small-btn" style="margin-top: 20px;">
+                Voir les Épreuves <i class="fa-solid fa-arrow-right" style="margin-left: 5px;"></i>
+            </a>
         </div>
-    </div>
+    </section>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
